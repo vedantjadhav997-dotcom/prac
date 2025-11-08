@@ -1,0 +1,78 @@
+SMILE
+import java.awt.*;
+
+
+
+    // Class that extends Frame to draw graphics
+    public class SSmile extends Frame {
+
+        @Override
+        public void paint(Graphics g) {
+            // Face
+            g.setColor(Color.YELLOW);
+            g.fillOval(50, 50, 200, 200);
+
+            // Eyes
+            g.setColor(Color.BLACK);
+            g.fillOval(90, 110, 30, 30);   // Left eye
+            g.fillOval(180, 110, 30, 30);  // Right eye
+
+            // Smile (Arc)
+            g.drawArc(100, 150, 100, 60, 0, -180);
+        }
+
+        public static void main(String[] args) {
+            SSmile f = new SSmile();
+            f.setSize(300, 350);
+            f.setTitle("Simple Smiley Face");
+            f.setVisible(true);
+
+            // Close window properly
+            f.addWindowListener(new java.awt.event.WindowAdapter() {
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+        }
+    }
+
+
+FLAG
+    import java.awt.*;
+    public class Indian_Flag extends Frame {
+        private final Color SAFFRON = new Color(255, 153, 51); // Approximate Saffron (Kesari)
+        private final Color INDIA_GREEN = new Color(19, 136, 8); // Approximate India Green
+        @Override
+        public void paint(Graphics g) {
+            g.setColor(SAFFRON);
+            g.fillRect(50, 50, 450, 100);
+            g.setColor(Color.WHITE);
+            g.fillRect(50, 150, 450, 100);
+            g.setColor(INDIA_GREEN);
+            g.fillRect(50, 250, 450, 100);
+            int centerX = 275;
+            int centerY = 200;
+            int radius = 40;
+            g.setColor(new Color(0, 0, 128));
+            g.drawOval(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
+            for (int i = 0; i < 24; i++) {
+                double angle = Math.toRadians(i * 15);
+                int x2 = (int) (centerX + radius * Math.cos(angle));
+                int y2 = (int) (centerY + radius * Math.sin(angle));
+                g.drawLine(centerX, centerY, x2, y2);
+            }
+        }
+        public static void main(String[] args) {
+            Indian_Flag f = new Indian_Flag();
+            f.setSize(550, 400);
+            f.setTitle("Indian National Flag");
+            f.setVisible(true);
+            f.addWindowListener(new java.awt.event.WindowAdapter() {
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+        }
+    }
+
+

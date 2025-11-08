@@ -1,0 +1,44 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class DrawShapes extends JPanel {
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // ---- Shape 1: Hourglass ----
+        g.setColor(Color.BLACK);
+        int[] x1 = {100, 150, 200};
+        int[] y1 = {100, 150, 100};
+        g.drawPolygon(x1, y1, 3); // upper triangle
+
+        int[] x2 = {100, 150, 200};
+        int[] y2 = {200, 150, 200};
+        g.drawPolygon(x2, y2, 3); // lower triangle
+
+        // ---- Shape 2: No Entry Sign ----
+        // Background green square
+        g.setColor(Color.GREEN);
+        g.fillRect(300, 80, 150, 150);
+
+        // Red circle
+        g.setColor(Color.RED);
+        g.fillOval(320, 100, 110, 110);
+
+        // White border circle
+        g.setColor(Color.WHITE);
+        g.drawOval(320, 100, 110, 110);
+
+        // White horizontal bar inside red circle
+        g.fillRect(345, 145, 60, 20);
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Draw Shapes using Graphics Class");
+        DrawShapes panel = new DrawShapes();
+        frame.add(panel);
+        frame.setSize(500, 350);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}

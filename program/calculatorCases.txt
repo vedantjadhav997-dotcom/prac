@@ -1,0 +1,116 @@
+import java.util.Scanner;
+public class calculatorCases {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int choice;
+            double num1, num2, result = 0;
+            long fact = 1;
+
+            System.out.println(===== SIMPLE CALCULATOR =====);
+            System.out.println(1. Addition);
+            System.out.println(2. Subtraction);
+            System.out.println(3. Multiplication);
+            System.out.println(4. Division);
+            System.out.println(5. Factorial);
+            System.out.println(6. Square Root);
+            System.out.println(7. Power);
+            System.out.println(8. Sine);
+            System.out.println(9. Cosine);
+            System.out.println(10. Logarithm);
+            System.out.println(=============================);
+            System.out.print(Enter your choice (1-10) );
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1
+                    System.out.print(Enter two numbers );
+                    num1 = sc.nextDouble();
+                    num2 = sc.nextDouble();
+                    result = num1 + num2;
+                    System.out.println(Addition =  + result);
+                    break;
+
+                case 2
+                    System.out.print(Enter two numbers );
+                    num1 = sc.nextDouble();
+                    num2 = sc.nextDouble();
+                    result = num1 - num2;
+                    System.out.println(Subtraction =  + result);
+                    break;
+
+                case 3
+                    System.out.print(Enter two numbers );
+                    num1 = sc.nextDouble();
+                    num2 = sc.nextDouble();
+                    result = num1  num2;
+                    System.out.println(Multiplication =  + result);
+                    break;
+
+                case 4
+                    System.out.print(Enter two numbers );
+                    num1 = sc.nextDouble();
+                    num2 = sc.nextDouble();
+                    if (num2 != 0)
+                        result = num1  num2;
+                    else
+                        System.out.println(Error Division by zero!);
+                    System.out.println(Division =  + result);
+                    break;
+
+                case 5
+                    System.out.print(Enter a number );
+                    int n = sc.nextInt();
+                    fact = 1;
+                    for (int i = 1; i = n; i++) {
+                        fact = i;
+                    }
+                    System.out.println(Factorial =  + fact);
+                    break;
+
+                case 6
+                    System.out.print(Enter a number );
+                    num1 = sc.nextDouble();
+                    result = Math.sqrt(num1);
+                    System.out.println(Square Root =  + result);
+                    break;
+
+                case 7
+                    System.out.print(Enter base and exponent );
+                    num1 = sc.nextDouble();
+                    num2 = sc.nextDouble();
+                    result = Math.pow(num1, num2);
+                    System.out.println(Power =  + result);
+                    break;
+
+                case 8
+                    System.out.print(Enter angle in degrees );
+                    num1 = sc.nextDouble();
+                    result = Math.sin(Math.toRadians(num1));
+                    System.out.println(Sine( + num1 + ) =  + result);
+                    break;
+
+                case 9
+                    System.out.print(Enter angle in degrees );
+                    num1 = sc.nextDouble();
+                    result = Math.cos(Math.toRadians(num1));
+                    System.out.println(Cosine( + num1 + ) =  + result);
+                    break;
+
+                case 10
+                    System.out.print(Enter a number );
+                    num1 = sc.nextDouble();
+                    result = Math.log(num1);
+                    System.out.println(Logarithm =  + result);
+                    break;
+
+                default
+                    System.out.println(Invalid Choice!);
+            }
+
+            sc.close();
+        }
+    }
+
+

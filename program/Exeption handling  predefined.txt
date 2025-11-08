@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class ExceptionHandLing {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.println("enter numerator");
+            float num1 = sc.nextInt();
+            System.out.println("enter denomerator");
+            float num2 = sc.nextInt();
+            float result = num1/num2;
+            System.out.println("reusult :"+result);
+
+            int[] arr ={1,24,34};
+            System.out.println("Enter array to print :");
+            int n = sc.nextInt();
+            System.out.println("Result :" +arr[n]);
+
+
+
+        }
+        catch (ArithmeticException e){
+            System.out.println("Can't divide by zero");
+
+        }
+        catch (Exception e){
+            System.out.println("index invalid");
+        }
+    }
+}

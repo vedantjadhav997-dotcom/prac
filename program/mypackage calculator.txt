@@ -1,0 +1,115 @@
+src/
+ ├── MyPackage/
+ │     └── Calculator.java
+ └── Demo/
+       └── SmartCalculator.java
+✅ File 1: Calculator.java
+(inside folder: MyPackage)
+
+java
+Copy code
+package MyPackage;
+
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public double divide(double a, double b) {
+        if (b == 0) {
+            System.out.println("Division by zero not allowed!");
+            return 0;
+        }
+        return a / b;
+    }
+
+    public double power(double a, double b) {
+        return Math.pow(a, b);
+    }
+
+    public double squareRoot(double a) {
+        return Math.sqrt(a);
+    }
+}
+✅ File 2: SmartCalculator.java
+(inside folder: Demo)
+
+java
+Copy code
+package Demo;
+
+import java.util.Scanner;
+import MyPackage.Calculator;
+
+public class SmartCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Calculator calc = new Calculator();
+        
+        System.out.println("=== Smart Calculator ===");
+        System.out.println("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Power\n6. Square Root");
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+
+        double result = 0;
+        double a, b;
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter two numbers: ");
+                a = sc.nextDouble();
+                b = sc.nextDouble();
+                result = calc.add((int) a, (int) b);
+                break;
+
+            case 2:
+                System.out.print("Enter two numbers: ");
+                a = sc.nextDouble();
+                b = sc.nextDouble();
+                result = calc.subtract((int) a, (int) b);
+                break;
+
+            case 3:
+                System.out.print("Enter two numbers: ");
+                a = sc.nextDouble();
+                b = sc.nextDouble();
+                result = calc.multiply((int) a, (int) b);
+                break;
+
+            case 4:
+                System.out.print("Enter two numbers: ");
+                a = sc.nextDouble();
+                b = sc.nextDouble();
+                result = calc.divide(a, b);
+                break;
+
+            case 5:
+                System.out.print("Enter base and exponent: ");
+                a = sc.nextDouble();
+                b = sc.nextDouble();
+                result = calc.power(a, b);
+                break;
+
+            case 6:
+                System.out.print("Enter number: ");
+                a = sc.nextDouble();
+                result = calc.squareRoot(a);
+                break;
+
+            default:
+                System.out.println("Invalid choice!");
+                System.exit(0);
+        }
+
+        System.out.println("Result: " + result);
+        sc.close();
+    }
+}

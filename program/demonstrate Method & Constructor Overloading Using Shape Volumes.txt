@@ -1,0 +1,62 @@
+class Shape {
+    // Constructor Overloading
+    Shape() {
+        System.out.println("Shape object created.");
+    }
+
+    Shape(String type) {
+        System.out.println("Calculating volume for: " + type);
+    }
+
+    // Method Overloading for different shapes
+
+    // 1. Cuboid
+    double volume(double l, double w, double h) {
+        return l * w * h;
+    }
+
+    // 2. Cube
+    double volume(double a) {
+        return a * a * a;
+    }
+
+    // 3. Cylinder
+    double volume(float r, float h) {
+        return Math.PI * r * r * h;
+    }
+
+    // 4. Sphere
+    double volume(int r) {
+        return (4.0 / 3.0) * Math.PI * r * r * r;
+    }
+
+    // 5. Pyramid
+    double volume(double B, int h) {
+        return (1.0 / 3.0) * B * h;
+    }
+
+    // 6. Ellipsoid
+    double volume(double a, double b, double c) {
+        return (4.0 / 3.0) * Math.PI * a * b * c;
+    }
+
+    // 7. Tetrahedron
+    double volume(float a) {
+        return (a * a * a) / (6 * Math.sqrt(2));
+    }
+}
+
+public class ShapeVolumeDemo {
+    public static void main(String[] args) {
+        Shape s1 = new Shape();
+        Shape s2 = new Shape("Different Shapes");
+
+        System.out.println("Cuboid Volume: " + s1.volume(5.0, 3.0, 2.0));
+        System.out.println("Cube Volume: " + s1.volume(4.0));
+        System.out.println("Cylinder Volume: " + s1.volume(3f, 7f));
+        System.out.println("Sphere Volume: " + s1.volume(5));
+        System.out.println("Pyramid Volume: " + s1.volume(10.0, 9));
+        System.out.println("Ellipsoid Volume: " + s1.volume(2.0, 3.0, 4.0));
+        System.out.println("Tetrahedron Volume: " + s1.volume(6f));
+    }
+}

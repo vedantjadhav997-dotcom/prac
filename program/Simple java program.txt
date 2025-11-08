@@ -1,0 +1,63 @@
+Find Factorial of a Number
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+
+        System.out.println("Factorial of " + n + " = " + fact);
+        sc.close();
+    }
+}
+
+(ii) Display First 50 Prime Numbers
+public class Prime50 {
+    public static void main(String[] args) {
+        int count = 0, num = 2;
+        System.out.println("First 50 Prime Numbers:");
+
+        while (count < 50) {
+            boolean isPrime = true;
+            for (int i = 2; i <= num / 2; i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.print(num + " ");
+                count++;
+            }
+            num++;
+        }
+    }
+}
+
+(iii) Find Sum and Average of N Numbers
+import java.util.Scanner;
+
+public class SumAvg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter how many numbers: ");
+        int n = sc.nextInt();
+
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter number " + i + ": ");
+            sum += sc.nextInt();
+        }
+
+        double avg = (double) sum / n;
+        System.out.println("Sum = " + sum);
+        System.out.println("Average = " + avg);
+        sc.close();
+    }
+}

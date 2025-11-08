@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+class Rectangle2 {   // <- remove 'public' here
+    double width;
+    double length;
+    double area;
+    String color;
+
+    Rectangle2(double width, double length, String color) {
+        this.width = width;
+        this.length = length;
+        this.color = color;
+        this.area = width * length;
+    }
+
+    void display() {
+        System.out.println("Width: " + width);
+        System.out.println("Length: " + length);
+        System.out.println("Area: " + area);
+        System.out.println("Color: " + color);
+    }
+
+}
+         class RectangleTest {   // <- this stays public
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter details for Rectangle 1:");
+            System.out.print("Width: ");
+            double w1 = sc.nextDouble();
+            System.out.print("Length: ");
+            double l1 = sc.nextDouble();
+            sc.nextLine();
+            System.out.print("Color: ");
+            String c1 = sc.nextLine();
+
+            System.out.println("\nEnter details for Rectangle 2:");
+            System.out.print("Width: ");
+            double w2 = sc.nextDouble();
+            System.out.print("Length: ");
+            double l2 = sc.nextDouble();
+            sc.nextLine();
+            System.out.print("Color: ");
+            String c2 = sc.nextLine();
+
+            Rectangle2 rect1 = new Rectangle2(w1, l1, c1);
+            Rectangle2 rect2 = new Rectangle2(w2, l2, c2);
+
+            System.out.println("\n--- Rectangle 1 ---");
+            rect1.display();
+            System.out.println("\n--- Rectangle 2 ---");
+            rect2.display();
+
+            if (rect1.area == rect2.area && rect1.color.equalsIgnoreCase(rect2.color)) {
+                System.out.println("\n✅ Matching Rectangles");
+                if (rect1.width == rect2.width && rect1.length == rect2.length
+                        && rect1.color.equalsIgnoreCase(rect2.color)) {
+                    System.out.println("Rectangles are IDENTICAL");
+                } else {
+                    System.out.println("Rectangles are NOT IDENTICAL");
+                }
+            } else {
+                System.out.println("\n❌ Non-Matching Rectangles");
+            }
+
+            sc.close();
+        }
+    }

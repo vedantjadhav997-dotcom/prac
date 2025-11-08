@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+class Student {
+    int rollNo;
+    String name;
+
+    void inputStudent() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Roll Number: ");
+        rollNo = sc.nextInt();
+        sc.nextLine(); // consume newline
+        System.out.print("Enter Name: ");
+        name = sc.nextLine();
+    }
+
+    void displayStudent() {
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+    }
+}
+
+class Exam extends Student {
+    int marks[] = new int[6];
+
+    void inputMarks() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter marks for 6 subjects:");
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Subject " + (i + 1) + ": ");
+            marks[i] = sc.nextInt();
+        }
+    }
+
+    void displayMarks() {
+        System.out.println("Marks in 6 subjects:");
+        for (int i = 0; i < 6; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + marks[i]);
+        }
+    }
+}
+
+class Result extends Exam {
+    int total;
+    double percentage;
+
+    void calculate() {
+        total = 0;
+        for (int i = 0; i < 6; i++) {
+            total += marks[i];
+        }
+        percentage = total / 6.0;
+    }
+
+    void displayResult() {
+        displayStudent();
+        displayMarks();
+        System.out.println("Total Marks: " + total);
+        System.out.println("Percentage: " + percentage + "%");
+    }
+}
+
+public class StudentResultDemo {
+    public static void main(String[] args) {
+        Result r = new Result();
+        r.inputStudent();
+        r.inputMarks();
+        r.calculate();
+        System.out.println("\n--- Student Result ---");
+        r.displayResult();
+    }
+}

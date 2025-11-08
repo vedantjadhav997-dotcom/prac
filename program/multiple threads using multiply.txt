@@ -1,0 +1,37 @@
+// Program to print multiplication tables using multiple threads
+
+class TableThread extends Thread {
+    int number;
+
+    // Constructor to set which table to print
+    TableThread(int number) {
+        this.number = number;
+    }
+
+    // Code that each thread will execute
+    public void run() {
+        System.out.println("\nMultiplication Table of " + number + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+            try {
+                Thread.sleep(500); // pause for half a second (optional)
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class MultiThreadTables {
+    public static void main(String[] args) {
+        // Create three thread objects
+        TableThread t1 = new TableThread(5);
+        TableThread t2 = new TableThread(7);
+        TableThread t3 = new TableThread(13);
+
+        // Start all threads
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}

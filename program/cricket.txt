@@ -1,0 +1,58 @@
+class Player {
+    String name;
+    int age;
+
+    Player(String n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+class Cricket_player extends Player {
+    Cricket_player(String n, int a) {
+        super(n, a);
+    }
+
+    void show() {
+        System.out.println("Cricket Player Details:");
+        display();
+    }
+}
+
+class Football_player extends Player {
+    Football_player(String n, int a) {
+        super(n, a);
+    }
+
+    void show() {
+        System.out.println("Football Player Details:");
+        display();
+    }
+}
+
+class Tennis_player extends Player {
+    Tennis_player(String n, int a) {
+        super(n, a);
+    }
+
+    void show() {
+        System.out.println("Tennis Player Details:");
+        display();
+    }
+}
+
+public class PlayerDemo {
+    public static void main(String[] args) {
+        Cricket_player c = new Cricket_player("Virat", 35);
+        Football_player f = new Football_player("Messi", 37);
+        Tennis_player t = new Tennis_player("Nadal", 38);
+
+        c.show();
+        f.show();
+        t.show();
+    }
+}

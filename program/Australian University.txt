@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+interface Sports {
+    int getGraceMarks();
+}
+
+class Student {
+    int rollNo;
+    String name;
+
+    void inputStudent() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Roll Number: ");
+        rollNo = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Name: ");
+        name = sc.nextLine();
+    }
+}
+
+class Exam extends Student {
+    int examMarks;
+    final int maxMarks = 100;
+
+    void inputExamMarks() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Exam Marks (out of 100): ");
+        examMarks = sc.nextInt();
+    }
+}
+
+class Result extends Exam implements Sports {
+    int graceMarks;
+    int finalMarks;
+
+    public int getGraceMarks() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Sports Grace Marks: ");
+        graceMarks = sc.nextInt();
+        return graceMarks;
+    }
+
+    void calculateFinalMarks() {
+        finalMarks = examMarks + getGraceMarks();
+        if (finalMarks > maxMarks)
+            finalMarks = maxMarks;
+    }
+
+    void displayResult() {
+        System.out.println("\n--- Final Result ---");
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+        System.out.println("Exam Marks: " + examMarks);
+        System.out.println("Grace Marks: " + graceMarks);
+        System.out.println("Final Marks: " + finalMarks);
+    }
+}
+
+public class GraceMarksDemo {
+    public static void main(String[] args) {
+        Result r = new Result();
+        r.inputStudent();
+        r.inputExamMarks();
+        r.calculateFinalMarks();
+        r.displayResult();
+    }
+}

@@ -1,0 +1,81 @@
+class Student {
+    String name;
+    int rollNumber;
+    int age;
+    double result;
+    String city;
+
+    // ----------- Constructor Overloading -----------
+
+    // Default constructor
+    Student() {
+        name = "Unknown";
+        rollNumber = 0;
+        age = 0;
+        result = 0.0;
+        city = "Not specified";
+    }
+
+    // Constructor with 2 parameters
+    Student(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.age = 18; // default
+        this.result = 0.0;
+        this.city = "Not specified";
+    }
+
+    // Constructor with all parameters
+    Student(String name, int rollNumber, int age, double result, String city) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.age = age;
+        this.result = result;
+        this.city = city;
+    }
+
+    // ----------- Method Overloading -----------
+
+    // Method 1: Display basic details
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+    }
+
+    // Method 2: Display all details
+    void display(boolean showFullDetails) {
+        if (showFullDetails) {
+            System.out.println("Name: " + name);
+            System.out.println("Roll Number: " + rollNumber);
+            System.out.println("Age: " + age);
+            System.out.println("Result: " + result);
+            System.out.println("City: " + city);
+        } else {
+            display(); // call simpler method
+        }
+    }
+}
+
+// ---------------- Main Class ----------------
+
+     class StudentTest {
+    public static void main(String[] args) {
+        // Using default constructor
+        Student s1 = new Student();
+
+        // Using constructor with 2 parameters
+        Student s2 = new Student("Abhay", 101);
+
+        // Using constructor with all parameters
+        Student s3 = new Student("Riya", 102, 20, 88.5, "Pune");
+
+        System.out.println("=== Student 1 Details ===");
+        s1.display(true);
+
+        System.out.println("\n=== Student 2 Details ===");
+        s2.display(false);
+
+        System.out.println("\n=== Student 3 Details ===");
+        s3.display(true);
+    }
+}

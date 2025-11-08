@@ -1,0 +1,77 @@
+Folder Structure (Important)
+UniversitySystem/
+│
+├── student/
+│   └── Student.java
+│
+├── staff/
+│   └── Staff.java
+│
+└── UniversityDemo.java
+
+📦 Package 1 — student
+
+
+
+package student;
+
+public class Student {
+    private String name;
+    private int rollNo;
+    private String course;
+
+    public Student(String name, int rollNo, String course) {
+        this.name = name;
+        this.rollNo = rollNo;
+        this.course = course;
+    }
+
+    public void display() {
+        System.out.println("---- Student Details ----");
+        System.out.println("Name: " + name);
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Course: " + course);
+    }
+}
+
+📦 Package 2 — staff
+
+
+
+package staff;
+
+public class Staff {
+    private String name;
+    private String department;
+    private String designation;
+
+    public Staff(String name, String department, String designation) {
+        this.name = name;
+        this.department = department;
+        this.designation = designation;
+    }
+
+    public void display() {
+        System.out.println("---- Staff Details ----");
+        System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+        System.out.println("Designation: " + designation);
+    }
+}
+
+🎓 Main Program — UniversityDemo.java
+
+
+import student.Student;
+import staff.Staff;
+
+public class UniversityDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student("Abhay Gore", 101, "Computer Engineering");
+        Staff st1 = new Staff("Dr. Mehta", "Computer Dept.", "Professor");
+
+        System.out.println("=== University System ===");
+        s1.display();
+        st1.display();
+    }
+}
